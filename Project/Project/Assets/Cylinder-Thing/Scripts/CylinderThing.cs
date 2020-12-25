@@ -38,11 +38,12 @@ public class CylinderThing : Agent
         sensor.AddObservation(angleToPosition);
         Debug.Log(angleToPosition);
     }
-
-    public override void Heuristic(float[] actionsOut)
+    
+    public override void Heuristic(in ActionBuffers actionsOut)
     {
-        actionsOut[0] = Input.GetAxis("Horizontal");
-        actionsOut[1] = Input.GetAxis("Vertical");
+        var contActs = actionsOut.ContinuousActions;
+        contActs[0] = Input.GetAxis("Horizontal");
+        contActs[1] = Input.GetAxis("Vertical");
     }
 
     public override void OnActionReceived(ActionBuffers actions)
