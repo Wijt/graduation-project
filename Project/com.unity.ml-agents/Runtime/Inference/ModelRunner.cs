@@ -16,7 +16,7 @@ namespace Unity.MLAgents.Inference
     internal class ModelRunner
     {
         List<AgentInfoSensorsPair> m_Infos = new List<AgentInfoSensorsPair>();
-        Dictionary<int, float[]> m_LastActionsReceived = new Dictionary<int, float[]>();
+        Dictionary<int, ActionBuffers> m_LastActionsReceived = new Dictionary<int, ActionBuffers>();
         List<int> m_OrderedAgentsRequestingDecisions = new List<int>();
 
         ITensorAllocator m_TensorAllocator;
@@ -41,7 +41,7 @@ namespace Unity.MLAgents.Inference
         /// the agents
         /// </summary>
         /// <param name="model"> The Barracuda model to load </param>
-        /// <param name="actionSpec"> Description of the action spaces for the Agent.</param>
+        /// <param name="actionSpec"> Description of the actions for the Agent.</param>
         /// <param name="inferenceDevice"> Inference execution device. CPU is the fastest
         /// option for most of ML Agents models. </param>
         /// <param name="seed"> The seed that will be used to initialize the RandomNormal
@@ -78,12 +78,22 @@ namespace Unity.MLAgents.Inference
                 m_Engine = null;
             }
 
-            m_InferenceInputs = BarracudaModelParamLoader.GetInputTensors(barracudaModel);
-            m_OutputNames = BarracudaModelParamLoader.GetOutputNames(barracudaModel);
+            m_InferenceInputs = barracudaModel.GetInputTensors();
+            m_OutputNames = barracudaModel.GetOutputNames();
             m_TensorGenerator = new TensorGenerator(
                 seed, m_TensorAllocator, m_Memories, barracudaModel);
             m_TensorApplier = new TensorApplier(
                 actionSpec, seed, m_TensorAllocator, m_Memories, barracudaModel);
+        }
+
+        public InferenceDevice InferenceDevice
+        {
+            get { return m_InferenceDevice; }
+        }
+
+        public NNModel Model
+        {
+            get { return m_Model; }
         }
 
         static Dictionary<string, Tensor> PrepareBarracudaInputs(IEnumerable<TensorProxy> infInputs)
@@ -132,7 +142,7 @@ namespace Unity.MLAgents.Inference
 
             if (!m_LastActionsReceived.ContainsKey(info.episodeId))
             {
-                m_LastActionsReceived[info.episodeId] = null;
+                m_LastActionsReceived[info.episodeId] = ActionBuffers.Empty;
             }
             if (info.done)
             {
@@ -195,13 +205,13 @@ namespace Unity.MLAgents.Inference
             return m_Model == other && m_InferenceDevice == otherInferenceDevice;
         }
 
-        public float[] GetAction(int agentId)
+        public ActionBuffers GetAction(int agentId)
         {
             if (m_LastActionsReceived.ContainsKey(agentId))
             {
                 return m_LastActionsReceived[agentId];
             }
-            return null;
+            return ActionBuffers.Empty;
         }
     }
 }

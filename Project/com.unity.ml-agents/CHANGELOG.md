@@ -7,6 +7,36 @@ and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [1.7.2-preview] - 2020-12-22
+### Bug Fixes
+#### com.unity.ml-agents (C#)
+- Add analytics package dependency to the package manifest. (#4794)
+#### ml-agents / ml-agents-envs / gym-unity (Python)
+- Fixed the docker build process. (#4791)
+
+## [1.7.0-preview] - 2020-12-21
+### Major Changes
+#### com.unity.ml-agents (C#)
+#### ml-agents / ml-agents-envs / gym-unity (Python)
+- PyTorch trainers now support training agents with both continuous and discrete action spaces. (#4702)
+### Minor Changes
+#### com.unity.ml-agents / com.unity.ml-agents.extensions (C#)
+- Agents with both continuous and discrete actions are now supported. You can specify
+both continuous and discrete action sizes in Behavior Parameters. (#4702, #4718)
+- In order to improve the developer experience for Unity ML-Agents Toolkit, we have added in-editor analytics.
+Please refer to "Information that is passively collected by Unity" in the
+[Unity Privacy Policy](https://unity3d.com/legal/privacy-policy). (#4677)
+- The FoodCollector example environment now uses continuous actions for moving and
+discrete actions for shooting. (#4746)
+#### ml-agents / ml-agents-envs / gym-unity (Python)
+- `ActionSpec.validate_action()` now enforces that `UnityEnvironment.set_action_for_agent()` receives a 1D `np.array`. (#4691)
+
+### Bug Fixes
+#### com.unity.ml-agents (C#)
+- Removed noisy warnings about API minor version mismatches in both the C# and python code. (#4688)
+#### ml-agents / ml-agents-envs / gym-unity (Python)
+
+
 ## [1.6.0-preview] - 2020-11-18
 ### Major Changes
 #### com.unity.ml-agents (C#)
@@ -35,7 +65,7 @@ Previously, this would result in an infinite loop and cause the editor to hang. 
 - Fixed an issue where runs could not be resumed when using TensorFlow and Ghost Training. (#4593)
 - Change the tensor type of step count from int32 to int64 to address the overflow issue when step
 goes larger than 2^31. Previous Tensorflow checkpoints will become incompatible and cannot be loaded. (#4607)
- - Remove extra period after "Training" in console log. (#4674)
+- Remove extra period after "Training" in console log. (#4674)
 
 
 ## [1.5.0-preview] - 2020-10-14
