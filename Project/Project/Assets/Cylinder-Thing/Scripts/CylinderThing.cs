@@ -26,9 +26,9 @@ public class CylinderThing : Agent
 
         gameObject.transform.localPosition = new Vector3(Random.Range(-1.1f, 1.1f), 0, Random.Range(-1.1f, 1.1f));
         gameObject.transform.Rotate(Vector3.up * Random.Range(0f, 360f));
-        testCount--;
+        //testCount--;
     }
-
+    
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(transform.localPosition);
@@ -36,7 +36,7 @@ public class CylinderThing : Agent
         Vector3 toPosition = (goals[selectedGoalId].transform.localPosition - transform.localPosition).normalized;
         float angleToPosition = Vector3.Angle(-transform.forward, toPosition);
         sensor.AddObservation(angleToPosition);
-        Debug.Log(angleToPosition);
+        //Debug.Log(angleToPosition);
     }
     
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -54,7 +54,7 @@ public class CylinderThing : Agent
         transform.Translate(new Vector3(0, 0, -move * Time.deltaTime * speed));
         transform.Rotate(Vector3.up * rot * Time.deltaTime * rotSpeed);
         // Penalty given each step to encourage agent to finish task quickly.
-        AddReward(-1f / MaxStep);
+        //AddReward(-1f / MaxStep);
     }
 
     /*
@@ -85,12 +85,12 @@ public class CylinderThing : Agent
         /*Debug.Log("Distance: " + Vector3.Distance(goals[selectedGoalId].transform.localPosition, transform.localPosition));
         Debug.Log("Target position: " + goals[selectedGoalId].transform.localPosition);
         Debug.Log("Agent position: " + transform.localPosition);*/
-        if(Vector3.Distance(goals[selectedGoalId].transform.localPosition, transform.localPosition) <= 0.75)
+        /*if(Vector3.Distance(goals[selectedGoalId].transform.localPosition, transform.localPosition) <= 0.75)
         {
             AddReward(15f);
             EndEpisode();
             return;
-        }
+        }*/
         if (this.transform.localPosition.y <= -1)
         {
             AddReward(-10f);
@@ -99,7 +99,7 @@ public class CylinderThing : Agent
         }
     }
 
-    /*
+    /*  
     private void Update()
     {
 
