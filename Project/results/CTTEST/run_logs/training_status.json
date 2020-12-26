@@ -1,0 +1,30 @@
+{
+    "CTest": {
+        "checkpoints": [
+            {
+                "steps": 499995,
+                "file_path": "results\\CTTEST\\CTest\\CTest-499995.onnx",
+                "reward": 14.855454618280584,
+                "creation_time": 1608967258.0028186
+            },
+            {
+                "steps": 620660,
+                "file_path": "results\\CTTEST\\CTest\\CTest-620660.onnx",
+                "reward": null,
+                "creation_time": 1608968495.7294064
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 620660,
+            "file_path": "results\\CTTEST\\CTest.onnx",
+            "reward": null,
+            "creation_time": 1608968495.7294064
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.23.0",
+        "torch_version": "1.7.0+cu110",
+        "tensorflow_version": -1
+    }
+}
