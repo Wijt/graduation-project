@@ -292,7 +292,7 @@ PrefabInstance:
     - target: {fileID: 8824465876182717131, guid: ec0a11042069328448c31197d0edb607,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0a11042069328448c31197d0edb607, type: 3}
@@ -366,7 +366,7 @@ PrefabInstance:
     - target: {fileID: 8824465876182717131, guid: ec0a11042069328448c31197d0edb607,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0a11042069328448c31197d0edb607, type: 3}
@@ -464,7 +464,7 @@ PrefabInstance:
     - target: {fileID: 8824465876182717131, guid: ec0a11042069328448c31197d0edb607,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0a11042069328448c31197d0edb607, type: 3}
@@ -709,7 +709,7 @@ PrefabInstance:
     - target: {fileID: 8824465876182717131, guid: ec0a11042069328448c31197d0edb607,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0a11042069328448c31197d0edb607, type: 3}
@@ -788,7 +788,7 @@ PrefabInstance:
     - target: {fileID: 8824465876182717131, guid: ec0a11042069328448c31197d0edb607,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0a11042069328448c31197d0edb607, type: 3}
@@ -862,7 +862,7 @@ PrefabInstance:
     - target: {fileID: 8824465876182717131, guid: ec0a11042069328448c31197d0edb607,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0a11042069328448c31197d0edb607, type: 3}
@@ -942,7 +942,7 @@ PrefabInstance:
     - target: {fileID: 8824465876182717131, guid: ec0a11042069328448c31197d0edb607,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0a11042069328448c31197d0edb607, type: 3}
@@ -1016,7 +1016,7 @@ PrefabInstance:
     - target: {fileID: 8824465876182717131, guid: ec0a11042069328448c31197d0edb607,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0a11042069328448c31197d0edb607, type: 3}
@@ -1026,6 +1026,89 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1558925524}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2013799489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2013799492}
+  - component: {fileID: 2013799491}
+  - component: {fileID: 2013799490}
+  m_Layer: 0
+  m_Name: Main Camera (1)
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!81 &2013799490
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013799489}
+  m_Enabled: 1
+--- !u!20 &2013799491
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013799489}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0.07993341, b: 0.09433961, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &2013799492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013799489}
+  m_LocalRotation: {x: 0.29245323, y: 0.03527433, z: -0.0107961865, w: 0.9555681}
+  m_LocalPosition: {x: 6.7881403, y: 6.853423, z: -23.346767}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 58.161, y: 0, z: 0}
 --- !u!1001 &4245282842328586858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1047,7 +1130,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 16d330bc8f638e243a1e0c130fc49d6c, type: 2}
+      objectReference: {fileID: 2100000, guid: 2fff9bf8c9e2fec4f8301e4c86d28d20, type: 2}
     - target: {fileID: 3479096130376939571, guid: ec0a11042069328448c31197d0edb607,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1243,11 +1326,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 16d330bc8f638e243a1e0c130fc49d6c, type: 2}
+      objectReference: {fileID: 2100000, guid: 2fff9bf8c9e2fec4f8301e4c86d28d20, type: 2}
     - target: {fileID: 8868807090893593709, guid: ec0a11042069328448c31197d0edb607,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 16d330bc8f638e243a1e0c130fc49d6c, type: 2}
+      objectReference: {fileID: 2100000, guid: 2fff9bf8c9e2fec4f8301e4c86d28d20, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0a11042069328448c31197d0edb607, type: 3}
