@@ -1,0 +1,24 @@
+{
+    "VPlayer": {
+        "checkpoints": [
+            {
+                "steps": 54336,
+                "file_path": "results\\VPlayer-First\\VPlayer\\VPlayer-54336.onnx",
+                "reward": -0.06741573033707865,
+                "creation_time": 1610669564.7412174
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 54336,
+            "file_path": "results\\VPlayer-First\\VPlayer.onnx",
+            "reward": -0.06741573033707865,
+            "creation_time": 1610669564.7412174
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.23.0",
+        "torch_version": "1.7.0+cu110",
+        "tensorflow_version": -1
+    }
+}

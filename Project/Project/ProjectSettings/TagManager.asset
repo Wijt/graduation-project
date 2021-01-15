@@ -29,6 +29,11 @@ TagManager:
   - symbol_O_Goal
   - purpleAgent
   - purpleGoal
+  - TeamA
+  - TeamB
+  - Net
+  - AreaA
+  - AreaB
   layers:
   - Default
   - TransparentFX
@@ -39,10 +44,10 @@ TagManager:
   - 
   - 
   - invisible
-  - 
-  - 
-  - 
-  - 
+  - trainfield
+  - player
+  - hidden
+  - ball
   - 
   - 
   - 

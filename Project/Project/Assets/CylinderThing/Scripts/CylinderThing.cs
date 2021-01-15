@@ -36,7 +36,6 @@ public class CylinderThing : Agent
         Vector3 toPosition = (goals[selectedGoalId].transform.localPosition - transform.localPosition).normalized;
         float angleToPosition = Vector3.Angle(-transform.forward, toPosition);
         sensor.AddObservation(angleToPosition);
-        //Debug.Log(angleToPosition);
     }
     
     public override void Heuristic(in ActionBuffers actionsOut)
