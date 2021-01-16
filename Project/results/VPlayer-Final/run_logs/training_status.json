@@ -1,0 +1,48 @@
+{
+    "VPlayer": {
+        "checkpoints": [
+            {
+                "steps": 7999998,
+                "file_path": "results\\VPlayer-Final\\VPlayer\\VPlayer-7999998.onnx",
+                "reward": 9.15164250777458,
+                "creation_time": 1610806621.3626661
+            },
+            {
+                "steps": 8499989,
+                "file_path": "results\\VPlayer-Final\\VPlayer\\VPlayer-8499989.onnx",
+                "reward": 9.555231171512835,
+                "creation_time": 1610808311.214563
+            },
+            {
+                "steps": 8999984,
+                "file_path": "results\\VPlayer-Final\\VPlayer\\VPlayer-8999984.onnx",
+                "reward": 8.918061701211636,
+                "creation_time": 1610809848.282167
+            },
+            {
+                "steps": 9499984,
+                "file_path": "results\\VPlayer-Final\\VPlayer\\VPlayer-9499984.onnx",
+                "reward": 10.045000028610229,
+                "creation_time": 1610811728.5245187
+            },
+            {
+                "steps": 9523408,
+                "file_path": "results\\VPlayer-Final\\VPlayer\\VPlayer-9523408.onnx",
+                "reward": 9.145614059347855,
+                "creation_time": 1610811813.7669804
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 9523408,
+            "file_path": "results\\VPlayer-Final\\VPlayer.onnx",
+            "reward": 9.145614059347855,
+            "creation_time": 1610811813.7669804
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.23.0",
+        "torch_version": "1.7.0+cu110",
+        "tensorflow_version": -1
+    }
+}

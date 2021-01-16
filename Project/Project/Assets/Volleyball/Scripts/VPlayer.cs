@@ -26,7 +26,7 @@ public class VPlayer : Agent
     public VTrainField area;
     public VBallController ballController;
 
-    float m_Existential;
+    float existinal;
     public float LateralSpeed = 0.3f;
     public float ForwardSpeed = 1.3f;
     public float JumpForce = 5;
@@ -45,7 +45,7 @@ public class VPlayer : Agent
 
     public override void Initialize()
     {
-        m_Existential = 1f / MaxStep;
+        existinal = 1f / MaxStep;
         m_BehaviorParameters = gameObject.GetComponent<BehaviorParameters>();
 
         team = (Team)m_BehaviorParameters.TeamId;
@@ -74,7 +74,7 @@ public class VPlayer : Agent
                 dirToGo = transform.forward * ForwardSpeed;
                 break;
             case 2:
-                dirToGo = transform.forward * -ForwardSpeed/1.5f;
+                dirToGo = transform.forward * -ForwardSpeed;
                 break;
         }
 
@@ -144,7 +144,7 @@ public class VPlayer : Agent
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         MoveAgent(actionBuffers.DiscreteActions);
-        timePenalty -= m_Existential;
+        timePenalty -= existinal;
         var continuousActions = actionBuffers.ContinuousActions;
         if (CheckGroundStatus())
             if(continuousActions[0]>0)
@@ -214,5 +214,10 @@ public class VPlayer : Agent
 
         var rgV = agentRb.velocity;
         agentRb.velocity = new Vector3(Mathf.Clamp(rgV.x, -maxVel, maxVel), rgV.y, Mathf.Clamp(rgV.z, -maxVel, maxVel));
+    }
+
+    public void ExistinalPunishment()
+    {
+        AddReward(10 * (1 + timePenalty));
     }
 }
