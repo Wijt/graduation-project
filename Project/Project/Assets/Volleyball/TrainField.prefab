@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &4044384289406672413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3810577193858258231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DecisionPeriod: 3
-  TakeActionsBetweenDecisions: 1
 --- !u!1 &4044384288235401925
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,11 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1249b59a8728d5a4ab26e39622154b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 4044384288840081966}
-  ballRb: {fileID: 0}
   playerStates: []
-  ballStartingPos: {x: 0, y: 0, z: 0}
-  ballStartForce: 0.5
+  ballController: {fileID: 4044384288840081959}
 --- !u!1 &4044384288370299468
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,9 +286,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4044384288840081966}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.25
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -324,7 +307,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  lastTouchPlayerIndex: -1
+  lastHit: 0
+  fromService: 0
+  serviseTo: 0
+  ballStartForce: 0.1
+  maxVel: 4
 --- !u!1 &4044384288978353709
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,48 +597,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4044384288742472697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8701912934643140677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DecisionPeriod: 3
-  TakeActionsBetweenDecisions: 1
---- !u!114 &4044384288312023854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8701912935290644616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DecisionPeriod: 3
-  TakeActionsBetweenDecisions: 1
---- !u!114 &4044384290263680973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8701912935489090665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DecisionPeriod: 3
-  TakeActionsBetweenDecisions: 1
 --- !u!1001 &1872702926939170986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -841,6 +786,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
+      propertyPath: ballController
+      value: 
+      objectReference: {fileID: 4044384288840081959}
+    - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
       propertyPath: m_ForwardSpeed
       value: 20
       objectReference: {fileID: 0}
@@ -872,12 +822,17 @@ PrefabInstance:
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: TeamId
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
-      propertyPath: m_BehaviorType
-      value: 0
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835005, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_RayLayerMask.m_Bits
+      value: 2099
       objectReference: {fileID: 0}
     - target: {fileID: 6621155464376603244, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -889,12 +844,6 @@ PrefabInstance:
 --- !u!4 &8325105229814067762 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
-    type: 3}
-  m_PrefabInstance: {fileID: 4044384288312023857}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8701912935290644616 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4675842112651162553, guid: 7aea8d5dacaaabd40aa38a185c735898,
     type: 3}
   m_PrefabInstance: {fileID: 4044384288312023857}
   m_PrefabAsset: {fileID: 0}
@@ -1002,6 +951,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
+      propertyPath: ballController
+      value: 
+      objectReference: {fileID: 4044384288840081959}
+    - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
       propertyPath: m_ForwardSpeed
       value: 20
       objectReference: {fileID: 0}
@@ -1033,29 +987,29 @@ PrefabInstance:
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: TeamId
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
-      propertyPath: m_BehaviorType
-      value: 0
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835005, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_RayLayerMask.m_Bits
+      value: 2099
       objectReference: {fileID: 0}
     - target: {fileID: 6621155464376603244, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2e757739cc52d8747a635f9dc0f50121, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 7aea8d5dacaaabd40aa38a185c735898, type: 3}
 --- !u!4 &8325105229422416639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
-    type: 3}
-  m_PrefabInstance: {fileID: 4044384288742472700}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8701912934643140677 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4675842112651162553, guid: 7aea8d5dacaaabd40aa38a185c735898,
     type: 3}
   m_PrefabInstance: {fileID: 4044384288742472700}
   m_PrefabAsset: {fileID: 0}
@@ -1153,14 +1107,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
-      propertyPath: MaxStep
-      value: 3000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
-        type: 3}
       propertyPath: JumpForce
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: ballController
+      value: 
+      objectReference: {fileID: 4044384288840081959}
     - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_ForwardSpeed
@@ -1188,8 +1142,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
-      propertyPath: m_BehaviorType
-      value: 0
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835005, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_RayLayerMask.m_Bits
+      value: 2099
       objectReference: {fileID: 0}
     - target: {fileID: 6621155464376603244, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1201,12 +1160,6 @@ PrefabInstance:
 --- !u!4 &8325105230547283667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
-    type: 3}
-  m_PrefabInstance: {fileID: 4044384290263680976}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8701912935489090665 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4675842112651162553, guid: 7aea8d5dacaaabd40aa38a185c735898,
     type: 3}
   m_PrefabInstance: {fileID: 4044384290263680976}
   m_PrefabAsset: {fileID: 0}
@@ -1314,6 +1267,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
+      propertyPath: ballController
+      value: 
+      objectReference: {fileID: 4044384288840081959}
+    - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
       propertyPath: m_ForwardSpeed
       value: 20
       objectReference: {fileID: 0}
@@ -1347,6 +1305,16 @@ PrefabInstance:
       propertyPath: m_BehaviorType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835005, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_RayLayerMask.m_Bits
+      value: 2099
+      objectReference: {fileID: 0}
     - target: {fileID: 6621155464376603244, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1357,12 +1325,6 @@ PrefabInstance:
 --- !u!4 &4587535692863639437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
-    type: 3}
-  m_PrefabInstance: {fileID: 8359259681201464974}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3810577193858258231 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4675842112651162553, guid: 7aea8d5dacaaabd40aa38a185c735898,
     type: 3}
   m_PrefabInstance: {fileID: 8359259681201464974}
   m_PrefabAsset: {fileID: 0}

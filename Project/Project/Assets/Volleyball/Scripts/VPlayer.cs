@@ -24,8 +24,7 @@ public class VPlayer : Agent
     public int PlayerIndex;
 
     public VTrainField area;
-    // The coefficient for the reward for colliding with a ball. Set using curriculum.
-    float m_BallTouch;
+    public VBallController ballController;
 
     float m_Existential;
     public float LateralSpeed = 0.3f;
@@ -37,10 +36,12 @@ public class VPlayer : Agent
 
     [HideInInspector]
     public Rigidbody agentRb;
+    [HideInInspector]
+    public Rigidbody ballRb;
 
     BehaviorParameters m_BehaviorParameters;
-    Vector3 m_Transform;
 
+    int invert;
 
     public override void Initialize()
     {
@@ -53,18 +54,7 @@ public class VPlayer : Agent
         agentRb.maxAngularVelocity = 500;
         agentRb.centerOfMass = new Vector3(0, -0.3f, 0.039f);
 
-
-        var playerState = new VPlayerState
-        {
-            agentRb = agentRb,
-            startingPos = transform.position,
-            startingRot = transform.rotation,
-            agentScript = this,
-        };
-
-        area.playerStates.Add(playerState);
-        PlayerIndex = area.playerStates.IndexOf(playerState);
-        playerState.playerIndex = PlayerIndex;
+        ballRb = ballController.GetComponent<Rigidbody>();
 
     }
 
@@ -84,7 +74,7 @@ public class VPlayer : Agent
                 dirToGo = transform.forward * ForwardSpeed;
                 break;
             case 2:
-                dirToGo = transform.forward * -ForwardSpeed;
+                dirToGo = transform.forward * -ForwardSpeed/1.5f;
                 break;
         }
 
@@ -122,13 +112,33 @@ public class VPlayer : Agent
     }
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(area.ballRb.velocity);
-        sensor.AddObservation(area.ball.transform.localPosition);
-        Vector3 toPosition = (area.ball.transform.localPosition - transform.localPosition).normalized;
-        float angleToPosition = Vector3.Angle(transform.forward, toPosition);
-        sensor.AddObservation(angleToPosition);
-        sensor.AddObservation(Vector3.Distance(this.transform.localPosition, area.ball.transform.localPosition));
+        sensor.AddObservation(ballRb.velocity.x * invert);
+        sensor.AddObservation(ballRb.velocity.y);
+        sensor.AddObservation(ballRb.velocity.y * invert);
+
+        sensor.AddObservation(ballRb.transform.localPosition.x * invert);
+        sensor.AddObservation(ballRb.transform.localPosition.y);
+        sensor.AddObservation(ballRb.transform.localPosition.z * invert);
+
+        sensor.AddObservation(Vector3.Distance(transform.localPosition, ballRb.transform.localPosition));
+
         sensor.AddObservation(CheckGroundStatus());
+
+
+        foreach (var playerStates in area.transform.GetComponentsInChildren<VPlayer>()) {
+            Transform playerPos = playerStates.agentRb.transform;
+            Rigidbody playerRb = playerStates.agentRb;
+
+            sensor.AddObservation(playerPos.transform.localPosition.x * invert);
+            sensor.AddObservation(playerPos.transform.localPosition.y);
+            sensor.AddObservation(playerPos.transform.localPosition.z * invert);
+
+            sensor.AddObservation(playerRb.velocity.x * invert);
+            sensor.AddObservation(playerRb.velocity.y);
+            sensor.AddObservation(playerRb.velocity.z * invert);
+        }
+
+        sensor.AddObservation(transform.rotation.y * invert);
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -140,13 +150,7 @@ public class VPlayer : Agent
             if(continuousActions[0]>0)
                 agentRb.AddForce(Vector3.up * continuousActions[0] * JumpForce, ForceMode.Impulse);
     }
-    void OnDrawGizmosSelected()
-    {
-        // Draw a yellow sphere at the transform's position
-        Gizmos.color = Color.yellow;
-        if (agentRb != null)
-            Gizmos.DrawSphere(transform.position + agentRb.centerOfMass, 0.01f);
-    }
+
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var discreteActionsOut = actionsOut.DiscreteActions;
@@ -189,27 +193,10 @@ public class VPlayer : Agent
             continuousActionsOut[0] = JumpForce;
         }
     }
-    /// <summary>
-    /// Used to provide a "kick" to the ball.
-    /// </summary>
-    void OnCollisionEnter(Collision c)
-    {
-        /* var force = k_Power * m_KickPower;
-         if (position == Position.Goalie)
-         {
-             force = k_Power;
-         }
-         if (c.gameObject.CompareTag("ball"))
-         {
-             AddReward(.2f * m_BallTouch);
-             var dir = c.contacts[0].point - transform.position;
-             dir = dir.normalized;
-             c.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
-         }*/
-    }
-
+ 
     public override void OnEpisodeBegin()
     {
+        invert = (int)team == 0 ? 1 : -1;
         timePenalty = 0;
 
         agentRb.velocity = Vector3.zero;
@@ -219,14 +206,12 @@ public class VPlayer : Agent
 
     private void FixedUpdate()
     {
-        //if (Input.GetKeyUp(KeyCode.W))
-        //{
-        //    if (CheckGroundStatus())
-        //    {
-        //        agentRb.AddForce(0, 5, 0, ForceMode.Impulse);
-        //    }
-        //}
-        if (transform.localEulerAngles.x != 0 || transform.localEulerAngles.z != 0) transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
+        if (transform.localEulerAngles.x != 0 || transform.localEulerAngles.z != 0)
+        {
+            //transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 0.1f, transform.localPosition.z);
+            transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
+        }
+
         var rgV = agentRb.velocity;
         agentRb.velocity = new Vector3(Mathf.Clamp(rgV.x, -maxVel, maxVel), rgV.y, Mathf.Clamp(rgV.z, -maxVel, maxVel));
     }
