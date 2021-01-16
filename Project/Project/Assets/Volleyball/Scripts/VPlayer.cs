@@ -19,7 +19,6 @@ public class VPlayer : Agent
         B = 1
     }
 
-    [HideInInspector]
     public Team team;
     public int PlayerIndex;
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class VBallController : MonoBehaviour
 {
@@ -11,10 +12,7 @@ public class VBallController : MonoBehaviour
         TeamBHit
     }
 
-    public Hit lastHit;
-
-    public bool fromService;
-    public VPlayer.Team serviseTo;
+    public List<Hit> hits;
 
     public float ballStartForce = 3;
     Rigidbody ballRb;
@@ -26,6 +24,7 @@ public class VBallController : MonoBehaviour
 
     private void Awake()
     {
+        hits = new List<Hit>();
         ballRb = GetComponent<Rigidbody>();
         ballStartingPos = transform.position;
 
@@ -45,10 +44,9 @@ public class VBallController : MonoBehaviour
         float rndStartForce = ballStartForce + Random.Range(0.05f, 0.5f);
         transform.localPosition = (Vector3.right * randomX) + (Vector3.up * 1.5f);
         ballRb.AddForce(((Vector3.forward * randomSign) + Vector3.up) * rndStartForce, ForceMode.Impulse);
-        fromService = true;
-        serviseTo = randomSign == -1 ? VPlayer.Team.A : VPlayer.Team.B;
 
-        lastHit = Hit.HitUnset;
+        hits.Clear();
+        hits.Add(Hit.HitUnset);
     }
 
     void AddRewardToTeam(VPlayer.Team team, float reward)
@@ -71,36 +69,32 @@ public class VBallController : MonoBehaviour
             player.AddReward(1f);
             //Debug.Log("Hit to player.");
 
-            lastHit = player.team == VPlayer.Team.A ? Hit.TeamAHit : Hit.TeamBHit;
-            fromService = false;
+            Hit hit = player.team == VPlayer.Team.A ? Hit.TeamAHit : Hit.TeamBHit;
+            hits.Add(hit);
         }
 
         if (col.gameObject.tag == "AreaA")
         {
             AddRewardToTeam(VPlayer.Team.A, -10 * (1 + existinal));
+            //Debug.Log("a ceza aldı");
 
-            if ((lastHit == Hit.TeamBHit || !fromService) || serviseTo != VPlayer.Team.A)
+            if (hits.Contains(Hit.TeamBHit))
             {
                 AddRewardToTeam(VPlayer.Team.B, 10 * (1 + existinal));
-                Debug.Log("b puan aldı a ceza aldı");
+                //Debug.Log("b puan aldı");
             }
         }
 
         if (col.gameObject.tag == "AreaB")
         {
             AddRewardToTeam(VPlayer.Team.B, -10 * (1 + existinal));
-            if(serviseTo == VPlayer.Team.B)
-            {
-            }
-            else
-            {
-                AddRewardToTeam(VPlayer.Team.A, 10 * (1 + existinal));
-                Debug.Log("a puan aldı b ceza aldı");
-            }
-            if ((lastHit == Hit.TeamAHit && !fromService) || (lastHit == Hit.HitUnset))
+            //Debug.Log("b ceza aldı");
+
+            if (hits.Contains(Hit.TeamBHit))
             {
                 AddRewardToTeam(VPlayer.Team.A, 10 * (1 + existinal));
-                Debug.Log("a puan aldı b ceza aldı");
+                //Debug.Log("a puan aldı");
+
             }
         }
 
