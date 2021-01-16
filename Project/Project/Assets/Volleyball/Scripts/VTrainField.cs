@@ -41,12 +41,12 @@ public class VTrainField : MonoBehaviour
         {
             if (ps.agentScript.team == scoredTeam)
             {
-                if (lastTouchPlayerIndex != -1)
+                /*if (lastTouchPlayerIndex != -1)
                 {
                     if (playerStates[lastTouchPlayerIndex].agentScript.team == scoredTeam)
                         ps.agentScript.AddReward(5 + ps.agentScript.timePenalty);
-                }
-               
+                }*/
+                ps.agentScript.AddReward(5 + ps.agentScript.timePenalty);
             }
             else
             {
@@ -76,7 +76,7 @@ public class VTrainField : MonoBehaviour
         //Ball shot
         // Random.Range(0,2)*2-1   == -1 or 1
         int randomSign = Random.Range(0, 2) * 2 - 1;
-        float rndStartForce = ballStartForce + Random.Range(-1f, 1f);
+        float rndStartForce = ballStartForce + Random.Range(0.5f, 1f);
         ballRb.AddForce(((Vector3.forward * randomSign * 2) + (Vector3.up * 4)) * rndStartForce, ForceMode.Impulse);
     }
 }

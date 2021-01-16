@@ -135,11 +135,10 @@ public class VPlayer : Agent
     {
         MoveAgent(actionBuffers.DiscreteActions);
         timePenalty -= m_Existential;
+        var continuousActions = actionBuffers.ContinuousActions;
         if (CheckGroundStatus())
-        {
-            float clampedJumpForce = Mathf.Clamp(actionBuffers.ContinuousActions[0], 0, JumpForce);
-            agentRb.AddForce(Vector3.up * clampedJumpForce, ForceMode.Impulse);
-        }
+            if(continuousActions[0]>0)
+                agentRb.AddForce(Vector3.up * continuousActions[0] * JumpForce, ForceMode.Impulse);
     }
     void OnDrawGizmosSelected()
     {
@@ -212,24 +211,11 @@ public class VPlayer : Agent
     public override void OnEpisodeBegin()
     {
         timePenalty = 0;
-        if (team == Team.A)
-        {
-            //transform.rotation = Quaternion.Euler(0f, -90f, 0f);
-        }
-        else
-        {
-            //transform.rotation = Quaternion.Euler(0f, 90f, 0f);
-        }
-        //transform.position = m_Transform;
+
         agentRb.velocity = Vector3.zero;
         agentRb.angularVelocity = Vector3.zero;
-        SetResetParameters();
     }
 
-    public void SetResetParameters()
-    {
-        //area.ResetBall();
-    }
 
     private void FixedUpdate()
     {
@@ -241,8 +227,7 @@ public class VPlayer : Agent
         //    }
         //}
         if (transform.localEulerAngles.x != 0 || transform.localEulerAngles.z != 0) transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
-        float vY = agentRb.velocity.y;
-        agentRb.velocity = Vector3.ClampMagnitude(agentRb.velocity, maxVel);
-        agentRb.velocity = new Vector3(agentRb.velocity.x, vY, agentRb.velocity.z);
+        var rgV = agentRb.velocity;
+        agentRb.velocity = new Vector3(Mathf.Clamp(rgV.x, -maxVel, maxVel), rgV.y, Mathf.Clamp(rgV.z, -maxVel, maxVel));
     }
 }
