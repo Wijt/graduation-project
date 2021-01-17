@@ -13,6 +13,7 @@ public class VBallController : MonoBehaviour
     }
 
     public List<Hit> hits;
+    public int lastTouchId = -1;
 
     public float ballStartForce = 3;
     Rigidbody ballRb;
@@ -41,72 +42,114 @@ public class VBallController : MonoBehaviour
         // Random.Range(0,2)*2-1   == -1 or 1
         int randomSign = Random.Range(0, 2) * 2 - 1;
         float randomX = Random.Range(-1.3f, 1.3f);
-        float rndStartForce = ballStartForce + Random.Range(0.05f, 0.5f);
-        transform.localPosition = (Vector3.right * randomX) + (Vector3.up * 1.5f);
-        ballRb.AddForce(((Vector3.forward * randomSign) + Vector3.up) * rndStartForce, ForceMode.Impulse);
+        float rndStartForce = ballStartForce;
+        transform.localPosition = (Vector3.right * randomX) + (Vector3.up * 2f);
+        Vector3 force = ((Vector3.forward * randomSign) + Vector3.up).normalized * rndStartForce;
+        ////Debug.Log(force);
+        ballRb.AddForce(force, ForceMode.Force);
 
         hits.Clear();
+        lastTouchId = -1;
         hits.Add(Hit.HitUnset);
     }
 
-    void AddRewardToTeam(VPlayer.Team team, float reward)
-    {
-        foreach (var playerStates in area.playerStates)
-        {
-            if (playerStates.agentScript.team != team)
-            {
-                playerStates.agentScript.AddReward(reward);
-            }
-        }
-    }
 
 
+    public float maxCatchTime = 0.3f;
+    float catchTimer;
+    bool catchPunishment = false;
     void OnCollisionEnter(Collision col)
     {
+        ////Debug.Log(area.playerStates[0].agentScript.StepCount);
         if (col.gameObject.layer == LayerMask.NameToLayer("player"))
         {
-            VPlayer player = col.gameObject.GetComponent<VPlayer>();
-            player.AddReward(1f);
+            catchTimer = 0;
+            catchPunishment = false;
             //Debug.Log("Hit to player.");
-
-            Hit hit = player.team == VPlayer.Team.A ? Hit.TeamAHit : Hit.TeamBHit;
-            hits.Add(hit);
+            VPlayer player = col.gameObject.GetComponent<VPlayer>();
+            if (lastTouchId == player.PlayerIndex)
+            {
+                //Debug.Log("Double Hit");
+                player.AddReward(-1f);
+            }
+            else
+            {
+                player.AddReward(1f);
+                Hit hit = player.team == VPlayer.Team.A ? Hit.TeamAHit : Hit.TeamBHit;
+                hits.Add(hit);
+            }
+            lastTouchId = player.PlayerIndex;
         }
 
         if (col.gameObject.tag == "AreaA")
         {
-            AddRewardToTeam(VPlayer.Team.A, -10 * (1 + existinal));
-            //Debug.Log("a ceza aldı");
+            area.AddRewardToTeam(VPlayer.Team.A, -10 * ((1 + existinal)/2));
+            //Debug.Log("a ceza aldı: "+ (- 10 * ((1 + existinal) / 2)));
 
             if (hits.Contains(Hit.TeamBHit))
             {
-                AddRewardToTeam(VPlayer.Team.B, 10 * (1 + existinal));
-                //Debug.Log("b puan aldı");
+                area.AddRewardToTeam(VPlayer.Team.B, 10 * (1 + existinal));
+                //Debug.Log("b puan aldı: " + (10 * (1 + existinal)));
             }
         }
 
         if (col.gameObject.tag == "AreaB")
         {
-            AddRewardToTeam(VPlayer.Team.B, -10 * (1 + existinal));
-            //Debug.Log("b ceza aldı");
-
-            if (hits.Contains(Hit.TeamBHit))
+            area.AddRewardToTeam(VPlayer.Team.B, -10 * ((1 + existinal) / 2));
+            //Debug.Log("b ceza aldı: " + (-10 * ((1 + existinal) / 2)));
+     
+            if (hits.Contains(Hit.TeamAHit))
             {
-                AddRewardToTeam(VPlayer.Team.A, 10 * (1 + existinal));
-                //Debug.Log("a puan aldı");
+                area.AddRewardToTeam(VPlayer.Team.A, 10 * (1 + existinal));
+                //Debug.Log("a puan aldı: " + (10 * (1 + existinal)));
 
             }
         }
 
-        if(col.gameObject.tag == "AreaA" || col.gameObject.tag == "AreaB")
+        if (col.gameObject.name == "BetweenWall")
         {
-            area.EndEpsido();
-            area.MatchReset();
+
+            if (hits[hits.Count - 1] == Hit.TeamAHit)
+            {
+                area.AddRewardToTeam(VPlayer.Team.A, 1);
+            }else if (hits[hits.Count - 1] == Hit.TeamBHit)
+            {
+                area.AddRewardToTeam(VPlayer.Team.B, 1);
+            }
+        }
+
+        if (col.gameObject.tag == "AreaA" || col.gameObject.tag == "AreaB")
+        {
+            EndMatch();
         }
     }
+
+    private void OnCollisionStay(Collision col)
+    {
+        if (col.gameObject.layer == LayerMask.NameToLayer("player"))
+        {
+            catchTimer += Time.deltaTime;
+            //Debug.Log("tutuş" + catchTimer + catchPunishment);
+            if (catchTimer >= maxCatchTime && !catchPunishment)
+            {
+                //Debug.Log("Oyuncu ceza aldı. Aşırı tutuş.");
+                col.gameObject.GetComponent<VPlayer>().AddReward(-1); catchPunishment = true; }
+        }
+    }
+
     private void FixedUpdate()
     {
         var rgV = ballRb.velocity;
         ballRb.velocity = new Vector3(Mathf.Clamp(rgV.x, -maxVel, maxVel), Mathf.Clamp(rgV.y, -maxVel, maxVel), Mathf.Clamp(rgV.z, -maxVel, maxVel));
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            EndMatch();
+        }            
+    }
+
+    void EndMatch()
+    {
+        area.EndEpsido();
+        area.MatchReset();
     }
 }

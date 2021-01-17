@@ -42,6 +42,14 @@ public class VPlayer : Agent
 
     int invert;
 
+    public bool debug;
+
+
+    public float jumpCoolDown = 1;
+    float jumpTimer;
+    bool jumpRight { get => jumpTimer <= 0 && CheckGroundStatus(); }
+
+
     public override void Initialize()
     {
         existinal = 1f / MaxStep;
@@ -105,10 +113,11 @@ public class VPlayer : Agent
     {
         RaycastHit hit;
         Ray landingRay = new Ray(transform.position, Vector3.down);
-        Debug.DrawRay(transform.position, Vector3.down * .45f);
+        //Debug.DrawRay(transform.position, Vector3.down * .45f);
 
         return Physics.Raycast(landingRay, out hit, .45f, LayerMask.GetMask("trainfield"));
     }
+
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(ballRb.velocity.x * invert);
@@ -121,10 +130,11 @@ public class VPlayer : Agent
 
         sensor.AddObservation(Vector3.Distance(transform.localPosition, ballRb.transform.localPosition));
 
-        sensor.AddObservation(CheckGroundStatus());
+        sensor.AddObservation(jumpRight);
 
 
-        foreach (var playerStates in area.transform.GetComponentsInChildren<VPlayer>()) {
+        foreach (var playerStates in area.transform.GetComponentsInChildren<VPlayer>())
+        {
             Transform playerPos = playerStates.agentRb.transform;
             Rigidbody playerRb = playerStates.agentRb;
 
@@ -137,7 +147,35 @@ public class VPlayer : Agent
             sensor.AddObservation(playerRb.velocity.z * invert);
         }
 
-        sensor.AddObservation(transform.rotation.y * invert);
+        sensor.AddObservation(transform.rotation.y);
+
+        if (debug)
+        {
+            debug = false;
+
+            Debug.Log(ballRb.transform.localPosition.x * invert);
+            Debug.Log(ballRb.transform.localPosition.y);
+            Debug.Log(ballRb.transform.localPosition.z * invert);
+
+            Debug.Log(Vector3.Distance(transform.localPosition, ballRb.transform.localPosition));
+
+            Debug.Log(jumpRight);
+
+
+            foreach (var playerStates in area.transform.GetComponentsInChildren<VPlayer>())
+            {
+                Transform playerPos = playerStates.agentRb.transform;
+                Rigidbody playerRb = playerStates.agentRb;
+
+                Debug.Log(playerPos.transform.localPosition.x * invert);
+                Debug.Log(playerPos.transform.localPosition.y);
+                Debug.Log(playerPos.transform.localPosition.z * invert);
+            }
+
+            Debug.Log("invert: " + invert);
+            Debug.Log(transform.rotation.y);
+            Debug.Log("--------------------------------------------------------");
+        }
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -145,9 +183,14 @@ public class VPlayer : Agent
         MoveAgent(actionBuffers.DiscreteActions);
         timePenalty -= existinal;
         var continuousActions = actionBuffers.ContinuousActions;
-        if (CheckGroundStatus())
-            if(continuousActions[0]>0)
+        if (continuousActions[0] > 0)
+        {
+            if (jumpRight)
+            {
                 agentRb.AddForce(Vector3.up * continuousActions[0] * JumpForce, ForceMode.Impulse);
+                jumpTimer = jumpCoolDown;
+            }
+        }
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -192,16 +235,16 @@ public class VPlayer : Agent
             continuousActionsOut[0] = JumpForce;
         }
     }
- 
+
     public override void OnEpisodeBegin()
     {
-        invert = (int)team == 0 ? 1 : -1;
+        invert = team == Team.A ? 1 : -1;
         timePenalty = 0;
 
         agentRb.velocity = Vector3.zero;
         agentRb.angularVelocity = Vector3.zero;
+        area.MatchReset();
     }
-
 
     private void FixedUpdate()
     {
@@ -213,10 +256,11 @@ public class VPlayer : Agent
 
         var rgV = agentRb.velocity;
         agentRb.velocity = new Vector3(Mathf.Clamp(rgV.x, -maxVel, maxVel), rgV.y, Mathf.Clamp(rgV.z, -maxVel, maxVel));
+
+        if (jumpTimer > 0)
+        {
+            jumpTimer -= Time.deltaTime;
+        }
     }
 
-    public void ExistinalPunishment()
-    {
-        AddReward(10 * (1 + timePenalty));
-    }
 }
