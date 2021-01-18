@@ -51,7 +51,7 @@ public class VTrainField : MonoBehaviour
         List<Vector3> positions = FourRandomPos();
         for (int i = 0; i < playerStates.Count; i++)
         {
-            playerStates[i].agentRb.transform.position = positions[i];
+            playerStates[i].agentRb.transform.localPosition = positions[i];
         }
         ballController.Service();
     }

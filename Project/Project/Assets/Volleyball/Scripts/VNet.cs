@@ -11,8 +11,6 @@ public class VNet : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("player"))
         {
             collision.gameObject.GetComponent<VPlayer>().AddReward(-1);
-            area.EndEpsido();
-            area.MatchReset();
         }
     }
 }

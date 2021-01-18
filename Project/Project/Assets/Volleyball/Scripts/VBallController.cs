@@ -44,9 +44,9 @@ public class VBallController : MonoBehaviour
         float randomX = Random.Range(-1.3f, 1.3f);
         float rndStartForce = ballStartForce;
         transform.localPosition = (Vector3.right * randomX) + (Vector3.up * 2f);
-        Vector3 force = ((Vector3.forward * randomSign) + Vector3.up).normalized * rndStartForce;
+        Vector3 force = ((Vector3.forward * randomSign * 3) + Vector3.up * 1).normalized * rndStartForce;
         ////Debug.Log(force);
-        ballRb.AddForce(force, ForceMode.Force);
+        ballRb.AddForce(force, ForceMode.Impulse);
 
         hits.Clear();
         lastTouchId = -1;
@@ -102,7 +102,6 @@ public class VBallController : MonoBehaviour
             {
                 area.AddRewardToTeam(VPlayer.Team.A, 10 * (1 + existinal));
                 //Debug.Log("a puan aldı: " + (10 * (1 + existinal)));
-
             }
         }
 
