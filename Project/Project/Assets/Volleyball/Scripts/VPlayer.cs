@@ -47,8 +47,8 @@ public class VPlayer : Agent
 
     public float jumpCoolDown = 1;
     float jumpTimer;
-    bool jumpRight { get => jumpTimer <= 0 && CheckGroundStatus(); }
-
+    public bool jumpRight { get => jumpTimer <= 0 && CheckGroundStatus(); }
+    public float hitForce = 0;
 
     public override void Initialize()
     {
@@ -132,7 +132,6 @@ public class VPlayer : Agent
 
         sensor.AddObservation(jumpRight);
 
-
         foreach (var playerStates in area.transform.GetComponentsInChildren<VPlayer>())
         {
             Transform playerPos = playerStates.agentRb.transform;
@@ -183,6 +182,7 @@ public class VPlayer : Agent
         MoveAgent(actionBuffers.DiscreteActions);
         timePenalty -= existinal;
         var continuousActions = actionBuffers.ContinuousActions;
+        hitForce = continuousActions[1];
         if (continuousActions[0] > 0)
         {
             if (jumpRight)
@@ -234,6 +234,7 @@ public class VPlayer : Agent
         {
             continuousActionsOut[0] = JumpForce;
         }
+        continuousActionsOut[1] = 1;
     }
 
     public override void OnEpisodeBegin()
@@ -243,6 +244,7 @@ public class VPlayer : Agent
 
         agentRb.velocity = Vector3.zero;
         agentRb.angularVelocity = Vector3.zero;
+        jumpTimer = 0;
         area.MatchReset();
     }
 

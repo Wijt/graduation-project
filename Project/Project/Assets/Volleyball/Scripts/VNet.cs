@@ -10,7 +10,9 @@ public class VNet : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("player"))
         {
-            collision.gameObject.GetComponent<VPlayer>().AddReward(-1);
+            VPlayer player = collision.gameObject.GetComponent<VPlayer>();
+            if (player.team == VPlayer.Team.A) area.ballController.BWon();
+            if (player.team == VPlayer.Team.B) area.ballController.AWon();
         }
     }
 }

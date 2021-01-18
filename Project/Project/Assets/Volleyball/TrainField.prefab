@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2414565405885884537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810577193858258231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RPSforTrainfield
+  m_DetectableTags:
+  - iWall
+  - wall
+  - Net
+  m_RaysPerDirection: 1
+  m_MaxRayDegrees: 180
+  m_SphereCastRadius: 0.1
+  m_RayLength: 20
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 819
+  m_ObservationStacks: 1
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
+  m_StartVerticalOffset: 0
+  m_EndVerticalOffset: 0
 --- !u!1 &4044384288235401925
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4044384288840081966}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0.204, y: 1.268, z: -0.563}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 4044384288235401924}
@@ -421,7 +450,7 @@ GameObject:
   - component: {fileID: 4044384289991373888}
   m_Layer: 8
   m_Name: BetweenWall
-  m_TagString: Untagged
+  m_TagString: iWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -626,6 +655,93 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 0
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1978935800537587991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8701912934643140677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RPSforTrainfield
+  m_DetectableTags:
+  - iWall
+  - wall
+  - Net
+  m_RaysPerDirection: 1
+  m_MaxRayDegrees: 180
+  m_SphereCastRadius: 0.1
+  m_RayLength: 20
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 819
+  m_ObservationStacks: 1
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
+  m_StartVerticalOffset: 0
+  m_EndVerticalOffset: 0
+--- !u!114 &2759650643816012033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8701912935290644616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RPSforTrainfield
+  m_DetectableTags:
+  - iWall
+  - wall
+  - Net
+  m_RaysPerDirection: 1
+  m_MaxRayDegrees: 180
+  m_SphereCastRadius: 0.1
+  m_RayLength: 20
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 819
+  m_ObservationStacks: 1
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
+  m_StartVerticalOffset: 0
+  m_EndVerticalOffset: 0
+--- !u!114 &3544861437336882335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8701912935489090665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RPSforTrainfield
+  m_DetectableTags:
+  - iWall
+  - wall
+  - Net
+  m_RaysPerDirection: 1
+  m_MaxRayDegrees: 180
+  m_SphereCastRadius: 0.1
+  m_RayLength: 20
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 819
+  m_ObservationStacks: 1
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
+  m_StartVerticalOffset: 0
+  m_EndVerticalOffset: 0
 --- !u!1001 &1872702926939170986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -806,7 +922,7 @@ PrefabInstance:
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.612
+      value: 0.437
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -921,12 +1037,17 @@ PrefabInstance:
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_InferenceDevice
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
       value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835005, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -940,6 +1061,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2e757739cc52d8747a635f9dc0f50121, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aea8d5dacaaabd40aa38a185c735898, type: 3}
+--- !u!1 &8701912935290644616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4675842112651162553, guid: 7aea8d5dacaaabd40aa38a185c735898,
+    type: 3}
+  m_PrefabInstance: {fileID: 4044384288312023857}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8325105229814067762 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
@@ -981,7 +1108,7 @@ PrefabInstance:
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.011
+      value: -0.16399997
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1096,12 +1223,17 @@ PrefabInstance:
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_InferenceDevice
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
       value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835005, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1119,6 +1251,12 @@ PrefabInstance:
 --- !u!4 &8325105229422416639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
+    type: 3}
+  m_PrefabInstance: {fileID: 4044384288742472700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8701912934643140677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4675842112651162553, guid: 7aea8d5dacaaabd40aa38a185c735898,
     type: 3}
   m_PrefabInstance: {fileID: 4044384288742472700}
   m_PrefabAsset: {fileID: 0}
@@ -1157,7 +1295,7 @@ PrefabInstance:
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.355
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1167,7 +1305,7 @@ PrefabInstance:
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.74
+      value: -1.729
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1216,6 +1354,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
+      propertyPath: hitForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
       propertyPath: JumpForce
       value: 9
       objectReference: {fileID: 0}
@@ -1251,13 +1394,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
-      propertyPath: m_InferenceDevice
+      propertyPath: m_BehaviorType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
       value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835005, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1274,6 +1427,12 @@ PrefabInstance:
 --- !u!4 &8325105230547283667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
+    type: 3}
+  m_PrefabInstance: {fileID: 4044384290263680976}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8701912935489090665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4675842112651162553, guid: 7aea8d5dacaaabd40aa38a185c735898,
     type: 3}
   m_PrefabInstance: {fileID: 4044384290263680976}
   m_PrefabAsset: {fileID: 0}
@@ -1312,7 +1471,7 @@ PrefabInstance:
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.523
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1422,12 +1581,17 @@ PrefabInstance:
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_InferenceDevice
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
       value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835005, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1444,6 +1608,12 @@ PrefabInstance:
 --- !u!4 &4587535692863639437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
+    type: 3}
+  m_PrefabInstance: {fileID: 8359259681201464974}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3810577193858258231 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4675842112651162553, guid: 7aea8d5dacaaabd40aa38a185c735898,
     type: 3}
   m_PrefabInstance: {fileID: 8359259681201464974}
   m_PrefabAsset: {fileID: 0}
