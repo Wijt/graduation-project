@@ -28,10 +28,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0.494}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 8325105229422416639}
   - {fileID: 8325105230547283667}
   - {fileID: 4587535692863639437}
   - {fileID: 8325105229814067762}
-  - {fileID: 8325105229422416639}
   - {fileID: 4044384288840081961}
   - {fileID: 6418801089772861904}
   - {fileID: 4044384288802901196}
@@ -801,12 +801,12 @@ PrefabInstance:
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.612
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -816,7 +816,7 @@ PrefabInstance:
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.586
+      value: 1.587
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -936,7 +936,12 @@ PrefabInstance:
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 33
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835005, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -986,12 +991,12 @@ PrefabInstance:
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.011
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1001,7 +1006,7 @@ PrefabInstance:
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.87
+      value: 0.814
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1121,7 +1126,12 @@ PrefabInstance:
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 33
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835005, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1172,22 +1182,22 @@ PrefabInstance:
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.355
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.625
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.74
+      value: -0.814
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1287,7 +1297,12 @@ PrefabInstance:
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 33
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835005, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1337,7 +1352,7 @@ PrefabInstance:
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1347,12 +1362,12 @@ PrefabInstance:
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.625
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.84
+      value: -1.587
       objectReference: {fileID: 0}
     - target: {fileID: 5451674471432857859, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1462,7 +1477,12 @@ PrefabInstance:
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 33
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835005, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}

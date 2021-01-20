@@ -48,11 +48,11 @@ public class VTrainField : MonoBehaviour
             item.agentScript.transform.rotation = item.startingRot;
             item.agentRb.velocity = Vector3.zero;
         }
-        List<Vector3> positions = FourRandomPos();
+        /*List<Vector3> positions = FourRandomPos();
         for (int i = 0; i < playerStates.Count; i++)
         {
             playerStates[i].agentRb.transform.localPosition = positions[i];
-        }
+        }*/
         ballController.Service();
     }
 

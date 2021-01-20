@@ -5,7 +5,7 @@ public class VBallController : MonoBehaviour
 {
     public VTrainField area;
 
-    public enum Hit 
+    public enum Hit
     {
         HitUnset,
         TeamAHit,
@@ -36,17 +36,18 @@ public class VBallController : MonoBehaviour
 
     public void Service()
     {
-        transform.position = ballStartingPos;
         ballRb.velocity = Vector3.zero;
+        ballRb.angularVelocity = Vector3.zero;
+        transform.eulerAngles = Vector3.zero;
         //Ball shot
-        // Random.Range(0,2)*2-1   == -1 or 1
+         //Random.Range(0, 2) * 2 - 1 == -1 or 1
         int randomSign = Random.Range(0, 2) * 2 - 1;
-        float randomX = Random.Range(-1.3f, 1.3f);
-        float rndStartForce = ballStartForce;
-        transform.localPosition = (Vector3.right * randomX) + (Vector3.up * 2f);
-        Vector3 force = ((Vector3.forward * randomSign * 3) + Vector3.up * 1).normalized * rndStartForce;
+       //float randomX = Random.Range(-1.3f, 1.3f);
+        //float rndStartForce = ballStartForce;
+        transform.localPosition = new Vector3(0, 2.85f, randomSign * 1.5f);
+        //Vector3 force = ((Vector3.forward * randomSign * 3) + Vector3.up * 1).normalized * rndStartForce;
         ////Debug.Log(force);
-        ballRb.AddForce(force, ForceMode.Impulse);
+        //ballRb.AddForce(force, ForceMode.Impulse);
 
         hits.Clear();
         lastTouchId = -1;
@@ -70,38 +71,43 @@ public class VBallController : MonoBehaviour
             if (lastTouchId == player.PlayerIndex)
             {
                 //Debug.Log("Double Hit");
-                player.AddReward(-1f);
+                player.AddReward(-0.1f);
             }
             else
             {
-                player.AddReward(1f);
-                Hit hit = player.team == VPlayer.Team.A ? Hit.TeamAHit : Hit.TeamBHit;
-                hits.Add(hit);
+                player.AddReward(0.1f);
+                if (!player.jumpRight)
+                {
+                    player.AddReward(0.2f);
+                    ContactPoint contact = col.contacts[0];
+                    ballRb.AddForce((contact.point - (contact.point + contact.normal)).normalized * player.hitForce * -2.5f, ForceMode.Impulse);
+                    Debug.DrawLine(contact.point, contact.point + contact.normal, Color.green, 2, false);
+                }
             }
             lastTouchId = player.PlayerIndex;
         }
 
         if (col.gameObject.tag == "AreaA")
         {
-            area.AddRewardToTeam(VPlayer.Team.A, -10 * ((1 + existinal)/2));
-            //Debug.Log("a ceza aldı: "+ (- 10 * ((1 + existinal) / 2)));
+            area.AddRewardToTeam(VPlayer.Team.A, -1);
+            //Debug.Log("a ceza aldı: " + "-1");
 
             if (hits.Contains(Hit.TeamBHit))
             {
-                area.AddRewardToTeam(VPlayer.Team.B, 10 * (1 + existinal));
-                //Debug.Log("b puan aldı: " + (10 * (1 + existinal)));
+                area.AddRewardToTeam(VPlayer.Team.B, 1);
+                //Debug.Log("b puan aldı: " + 1);
             }
         }
 
         if (col.gameObject.tag == "AreaB")
         {
-            area.AddRewardToTeam(VPlayer.Team.B, -10 * ((1 + existinal) / 2));
-            //Debug.Log("b ceza aldı: " + (-10 * ((1 + existinal) / 2)));
-     
+            area.AddRewardToTeam(VPlayer.Team.B, -1);
+            //Debug.Log("b ceza aldı: " + "-1");
+
             if (hits.Contains(Hit.TeamAHit))
             {
-                area.AddRewardToTeam(VPlayer.Team.A, 10 * (1 + existinal));
-                //Debug.Log("a puan aldı: " + (10 * (1 + existinal)));
+                area.AddRewardToTeam(VPlayer.Team.A, 1);
+                //Debug.Log("a puan aldı: " + "1");
             }
         }
 
@@ -110,10 +116,11 @@ public class VBallController : MonoBehaviour
 
             if (hits[hits.Count - 1] == Hit.TeamAHit)
             {
-                area.AddRewardToTeam(VPlayer.Team.A, 1);
-            }else if (hits[hits.Count - 1] == Hit.TeamBHit)
+                area.AddRewardToTeam(VPlayer.Team.A, 0.2f);
+            }
+            else if (hits[hits.Count - 1] == Hit.TeamBHit)
             {
-                area.AddRewardToTeam(VPlayer.Team.B, 1);
+                area.AddRewardToTeam(VPlayer.Team.B, 0.2f);
             }
         }
 
@@ -132,7 +139,8 @@ public class VBallController : MonoBehaviour
             if (catchTimer >= maxCatchTime && !catchPunishment)
             {
                 //Debug.Log("Oyuncu ceza aldı. Aşırı tutuş.");
-                col.gameObject.GetComponent<VPlayer>().AddReward(-1); catchPunishment = true; }
+                col.gameObject.GetComponent<VPlayer>().AddReward(-0.1f); catchPunishment = true;
+            }
         }
     }
 
@@ -143,11 +151,12 @@ public class VBallController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.O))
         {
             EndMatch();
-        }            
+        }
     }
 
     void EndMatch()
     {
+        //Debug.Log("Match done!");
         area.EndEpsido();
         area.MatchReset();
     }

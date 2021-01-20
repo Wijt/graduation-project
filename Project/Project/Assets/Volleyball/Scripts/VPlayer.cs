@@ -47,7 +47,8 @@ public class VPlayer : Agent
 
     public float jumpCoolDown = 1;
     float jumpTimer;
-    bool jumpRight { get => jumpTimer <= 0 && CheckGroundStatus(); }
+    public bool jumpRight { get => jumpTimer <= 0 && CheckGroundStatus(); }
+    public float hitForce = 0;
 
 
     public override void Initialize()
@@ -131,7 +132,7 @@ public class VPlayer : Agent
         sensor.AddObservation(Vector3.Distance(transform.localPosition, ballRb.transform.localPosition));
 
         sensor.AddObservation(jumpRight);
-
+        sensor.AddObservation(jumpTimer);
 
         foreach (var playerStates in area.transform.GetComponentsInChildren<VPlayer>())
         {
@@ -183,6 +184,10 @@ public class VPlayer : Agent
         MoveAgent(actionBuffers.DiscreteActions);
         timePenalty -= existinal;
         var continuousActions = actionBuffers.ContinuousActions;
+        hitForce = Mathf.Clamp(continuousActions[1], 0f, 1f);
+
+        AddReward(0.01f / Vector3.Distance(transform.localPosition, ballController.transform.localPosition));
+
         if (continuousActions[0] > 0)
         {
             if (jumpRight)
@@ -234,6 +239,7 @@ public class VPlayer : Agent
         {
             continuousActionsOut[0] = 1;
         }
+        hitForce = 1;
     }
 
     public override void OnEpisodeBegin()
