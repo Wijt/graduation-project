@@ -876,7 +876,7 @@ PrefabInstance:
     - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: JumpForce
-      value: 9
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -920,8 +920,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
-      propertyPath: m_InferenceDevice
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_BehaviorType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1051,7 +1061,7 @@ PrefabInstance:
     - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: JumpForce
-      value: 9
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1095,8 +1105,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
-      propertyPath: m_InferenceDevice
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_BehaviorType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1217,7 +1237,7 @@ PrefabInstance:
     - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: JumpForce
-      value: 9
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1251,8 +1271,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
-      propertyPath: m_InferenceDevice
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_BehaviorType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1377,7 +1407,7 @@ PrefabInstance:
     - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: JumpForce
-      value: 9
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835000, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1416,13 +1446,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
       propertyPath: m_BehaviorType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: m_InferenceDevice
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}

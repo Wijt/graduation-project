@@ -122,7 +122,7 @@ public class VPlayer : Agent
     {
         sensor.AddObservation(ballRb.velocity.x * invert);
         sensor.AddObservation(ballRb.velocity.y);
-        sensor.AddObservation(ballRb.velocity.y * invert);
+        sensor.AddObservation(ballRb.velocity.z * invert);
 
         sensor.AddObservation(ballRb.transform.localPosition.x * invert);
         sensor.AddObservation(ballRb.transform.localPosition.y);
@@ -232,7 +232,7 @@ public class VPlayer : Agent
         //jump
         if (Input.GetKey(KeyCode.Space))
         {
-            continuousActionsOut[0] = JumpForce;
+            continuousActionsOut[0] = 1;
         }
     }
 
@@ -240,7 +240,7 @@ public class VPlayer : Agent
     {
         invert = team == Team.A ? 1 : -1;
         timePenalty = 0;
-
+        jumpTimer = 0;
         agentRb.velocity = Vector3.zero;
         agentRb.angularVelocity = Vector3.zero;
         area.MatchReset();
