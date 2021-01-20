@@ -186,7 +186,7 @@ public class VPlayer : Agent
         var continuousActions = actionBuffers.ContinuousActions;
         hitForce = Mathf.Clamp(continuousActions[1], 0f, 1f);
 
-        AddReward(0.01f / Vector3.Distance(transform.localPosition, ballController.transform.localPosition));
+        //AddReward(0.01f / Vector3.Distance(transform.localPosition, ballController.transform.localPosition));
 
         if (continuousActions[0] > 0)
         {
