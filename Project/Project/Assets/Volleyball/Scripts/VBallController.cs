@@ -89,7 +89,7 @@ public class VBallController : MonoBehaviour
 
         if (col.gameObject.tag == "AreaA")
         {
-            area.AddRewardToTeam(VPlayer.Team.A, -1);
+            area.AddRewardToTeam(VPlayer.Team.A, -0.75f);
             //Debug.Log("a ceza aldı: " + "-1");
 
             if (hits.Contains(Hit.TeamBHit))
@@ -101,7 +101,7 @@ public class VBallController : MonoBehaviour
 
         if (col.gameObject.tag == "AreaB")
         {
-            area.AddRewardToTeam(VPlayer.Team.B, -1);
+            area.AddRewardToTeam(VPlayer.Team.B, -0.75f);
             //Debug.Log("b ceza aldı: " + "-1");
 
             if (hits.Contains(Hit.TeamAHit))
