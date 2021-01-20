@@ -190,7 +190,7 @@ public class VPlayer : Agent
         var continuousActions = actionBuffers.ContinuousActions;
         hitForce = Mathf.Clamp(continuousActions[1], 0f, 1f);
 
-        float distanceToBall = Vector3.Distance(transform.localPosition, ballController.transform.localPosition);
+        /*float distanceToBall = Vector3.Distance(transform.localPosition, ballController.transform.localPosition);
         distanceToBall = Mathf.Clamp(distanceToBall, 0, 2);
 
         float ballDistReward = map(distanceToBall, 0, 2, 10, -1)/100;
@@ -199,7 +199,7 @@ public class VPlayer : Agent
         if (debug)
         {
             Debug.Log("Distance Reward: " + ballDistReward.ToString());
-        }
+        }*/
         
         if (continuousActions[0] > 0)
         {
