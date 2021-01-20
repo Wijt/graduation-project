@@ -178,6 +178,10 @@ public class VPlayer : Agent
             Debug.Log("--------------------------------------------------------");
         }
     }
+    float map(float s, float a1, float a2, float b1, float b2)
+    {
+        return b1 + (s - a1) * (b2 - b1) / (a2 - a1);
+    }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
@@ -186,7 +190,12 @@ public class VPlayer : Agent
         var continuousActions = actionBuffers.ContinuousActions;
         hitForce = Mathf.Clamp(continuousActions[1], 0f, 1f);
 
-        //AddReward(0.01f / Vector3.Distance(transform.localPosition, ballController.transform.localPosition));
+        float distanceToBall = Vector3.Distance(transform.localPosition, ballController.transform.localPosition);
+        distanceToBall = Mathf.Clamp(distanceToBall, 0, 1);
+
+        float ballDistReward = map(distanceToBall, 0, 1, 1, -1);
+
+        AddReward(ballDistReward/100);
 
         if (continuousActions[0] > 0)
         {
