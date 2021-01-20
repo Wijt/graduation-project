@@ -191,9 +191,9 @@ public class VPlayer : Agent
         hitForce = Mathf.Clamp(continuousActions[1], 0f, 1f);
 
         float distanceToBall = Vector3.Distance(transform.localPosition, ballController.transform.localPosition);
-        distanceToBall = Mathf.Clamp(distanceToBall, 0, 10);
+        distanceToBall = Mathf.Clamp(distanceToBall, 0, 2);
 
-        float ballDistReward = map(distanceToBall, 0, 10, 10, -1)/100;
+        float ballDistReward = map(distanceToBall, 0, 2, 10, -1)/100;
 
         AddReward(ballDistReward);
         if (debug)
