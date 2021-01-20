@@ -191,12 +191,16 @@ public class VPlayer : Agent
         hitForce = Mathf.Clamp(continuousActions[1], 0f, 1f);
 
         float distanceToBall = Vector3.Distance(transform.localPosition, ballController.transform.localPosition);
-        distanceToBall = Mathf.Clamp(distanceToBall, 0, 1);
+        distanceToBall = Mathf.Clamp(distanceToBall, 0, 10);
 
-        float ballDistReward = map(distanceToBall, 0, 1, 1, -1);
+        float ballDistReward = map(distanceToBall, 0, 10, 10, -1)/100;
 
-        AddReward(ballDistReward/100);
-
+        AddReward(ballDistReward);
+        if (debug)
+        {
+            Debug.Log("Distance Reward: " + ballDistReward.ToString());
+        }
+        
         if (continuousActions[0] > 0)
         {
             if (jumpRight)
