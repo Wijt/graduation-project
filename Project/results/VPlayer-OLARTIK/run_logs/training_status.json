@@ -2,17 +2,17 @@
     "VPlayer": {
         "checkpoints": [
             {
-                "steps": 96472,
-                "file_path": "results\\VPlayer-OLARTIK\\VPlayer\\VPlayer-96472.onnx",
-                "reward": -0.16304932807015687,
-                "creation_time": 1611121656.752762
+                "steps": 95534,
+                "file_path": "results\\VPlayer-OLARTIK\\VPlayer\\VPlayer-95534.onnx",
+                "reward": -0.8129323201649117,
+                "creation_time": 1611135754.9420803
             }
         ],
         "final_checkpoint": {
-            "steps": 96472,
+            "steps": 95534,
             "file_path": "results\\VPlayer-OLARTIK\\VPlayer.onnx",
-            "reward": -0.16304932807015687,
-            "creation_time": 1611121656.752762
+            "reward": -0.8129323201649117,
+            "creation_time": 1611135754.9420803
         }
     },
     "metadata": {
