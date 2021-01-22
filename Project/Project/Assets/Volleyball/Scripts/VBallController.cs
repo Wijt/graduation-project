@@ -43,7 +43,7 @@ public class VBallController : MonoBehaviour
         int randomSign = Random.Range(0, 2) * 2 - 1;
         //float randomX = Random.Range(-1.3f, 1.3f);
         //float rndStartForce = ballStartForce + Random.Range(0.05f, 0.5f);
-        transform.localPosition = new Vector3(0, 1.5f, randomSign * 1.32f);
+        transform.localPosition = new Vector3(0, 1.5f, randomSign * 0.7f);
         //ballRb.AddForce(((Vector3.forward * randomSign) + Vector3.up) * rndStartForce, ForceMode.Impulse);
 
         hits.Clear();
