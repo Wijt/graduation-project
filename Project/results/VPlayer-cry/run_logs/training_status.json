@@ -1,0 +1,228 @@
+{
+    "VPlayer": {
+        "checkpoints": [
+            {
+                "steps": 499999,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-499999.onnx",
+                "reward": -0.75,
+                "creation_time": 1611156797.9189858
+            },
+            {
+                "steps": 999993,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-999993.onnx",
+                "reward": -0.2704663181320373,
+                "creation_time": 1611166519.6960835
+            },
+            {
+                "steps": 1499991,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-1499991.onnx",
+                "reward": -0.2784518794971031,
+                "creation_time": 1611170238.623458
+            },
+            {
+                "steps": 1999981,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-1999981.onnx",
+                "reward": -0.2789473652741627,
+                "creation_time": 1611173403.4152012
+            },
+            {
+                "steps": 2499997,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-2499997.onnx",
+                "reward": -0.29122448641122606,
+                "creation_time": 1611176484.807067
+            },
+            {
+                "steps": 2999997,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-2999997.onnx",
+                "reward": -0.29029511607058606,
+                "creation_time": 1611179483.549137
+            },
+            {
+                "steps": 3499983,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-3499983.onnx",
+                "reward": -0.2519434592538503,
+                "creation_time": 1611182446.8155665
+            },
+            {
+                "steps": 3999989,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-3999989.onnx",
+                "reward": -0.2933673438090248,
+                "creation_time": 1611185516.111289
+            },
+            {
+                "steps": 4499983,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-4499983.onnx",
+                "reward": -0.39074073842278234,
+                "creation_time": 1611188494.4299881
+            },
+            {
+                "steps": 4999991,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-4999991.onnx",
+                "reward": -0.33533653575712097,
+                "creation_time": 1611191519.433312
+            },
+            {
+                "steps": 5499987,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-5499987.onnx",
+                "reward": -0.3053908323683347,
+                "creation_time": 1611194494.2142744
+            },
+            {
+                "steps": 5999987,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-5999987.onnx",
+                "reward": -0.24883720555970834,
+                "creation_time": 1611197448.8237178
+            },
+            {
+                "steps": 6499978,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-6499978.onnx",
+                "reward": -0.306361825814541,
+                "creation_time": 1611200665.4997745
+            },
+            {
+                "steps": 6999997,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-6999997.onnx",
+                "reward": -0.2568019057372874,
+                "creation_time": 1611203961.409162
+            },
+            {
+                "steps": 7499991,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-7499991.onnx",
+                "reward": -0.28508474172677023,
+                "creation_time": 1611207482.2149029
+            },
+            {
+                "steps": 7572915,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-7572915.onnx",
+                "reward": -0.27292745763078874,
+                "creation_time": 1611208481.7760763
+            },
+            {
+                "steps": 7999996,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-7999996.onnx",
+                "reward": -0.3134128130783623,
+                "creation_time": 1611215722.097589
+            },
+            {
+                "steps": 8499981,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-8499981.onnx",
+                "reward": -0.32066666295131047,
+                "creation_time": 1611219201.5842319
+            },
+            {
+                "steps": 8999995,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-8999995.onnx",
+                "reward": -0.26913978074507044,
+                "creation_time": 1611225126.7514427
+            },
+            {
+                "steps": 9499993,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-9499993.onnx",
+                "reward": -0.2889322877745144,
+                "creation_time": 1611233363.6761103
+            },
+            {
+                "steps": 9999991,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-9999991.onnx",
+                "reward": -0.2967272691293196,
+                "creation_time": 1611238344.7777696
+            },
+            {
+                "steps": 10499988,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-10499988.onnx",
+                "reward": -0.27444061583065127,
+                "creation_time": 1611247926.182598
+            },
+            {
+                "steps": 10999999,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-10999999.onnx",
+                "reward": -0.39264705601860495,
+                "creation_time": 1611253683.4851892
+            },
+            {
+                "steps": 11499988,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-11499988.onnx",
+                "reward": -0.2685750597192131,
+                "creation_time": 1611262352.82806
+            },
+            {
+                "steps": 11593267,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-11593267.onnx",
+                "reward": null,
+                "creation_time": 1611263144.3962932
+            },
+            {
+                "steps": 11610631,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-11610631.onnx",
+                "reward": -0.31292134506648844,
+                "creation_time": 1611266663.6753519
+            },
+            {
+                "steps": 11999999,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-11999999.onnx",
+                "reward": -0.29058553046631347,
+                "creation_time": 1611268888.70048
+            },
+            {
+                "steps": 12499998,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-12499998.onnx",
+                "reward": -0.25591053944616654,
+                "creation_time": 1611271696.6764705
+            },
+            {
+                "steps": 12999977,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-12999977.onnx",
+                "reward": -0.2506329073464569,
+                "creation_time": 1611274554.1522944
+            },
+            {
+                "steps": 13499989,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-13499989.onnx",
+                "reward": -0.3568181788379496,
+                "creation_time": 1611277342.4313946
+            },
+            {
+                "steps": 13999987,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-13999987.onnx",
+                "reward": -0.2866028667957874,
+                "creation_time": 1611280137.7972023
+            },
+            {
+                "steps": 14499997,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-14499997.onnx",
+                "reward": -0.2806622480517192,
+                "creation_time": 1611282919.5119245
+            },
+            {
+                "steps": 14999983,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-14999983.onnx",
+                "reward": -0.2233830804552012,
+                "creation_time": 1611285703.6272619
+            },
+            {
+                "steps": 15499983,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-15499983.onnx",
+                "reward": -0.3189716282835666,
+                "creation_time": 1611288486.3592734
+            },
+            {
+                "steps": 15957749,
+                "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-15957749.onnx",
+                "reward": -0.2815050983668438,
+                "creation_time": 1611291083.4429498
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 15957749,
+            "file_path": "results\\VPlayer-cry\\VPlayer.onnx",
+            "reward": -0.2815050983668438,
+            "creation_time": 1611291083.4429498
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.23.0",
+        "torch_version": "1.7.0+cu110",
+        "tensorflow_version": -1
+    }
+}
