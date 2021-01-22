@@ -1,0 +1,47 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1611301135",
+        "python_version": "3.8.5 (default, Sep  3 2020, 21:29:08) [MSC v.1916 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\Wijt\\.conda\\envs\\graduation-project\\Scripts\\mlagents-learn config/ppo/VPlayer.yaml --run-id=VPlayer-FirstButCorrected",
+        "mlagents_version": "0.23.0",
+        "mlagents_envs_version": "0.23.0",
+        "communication_protocol_version": "1.3.0",
+        "pytorch_version": "1.7.0+cu110",
+        "numpy_version": "1.18.5",
+        "end_time_seconds": "1611301160"
+    },
+    "total": 24.4360468,
+    "count": 1,
+    "self": 0.018605899999997177,
+    "children": {
+        "run_training.setup": {
+            "total": 0.03656660000000045,
+            "count": 1,
+            "self": 0.03656660000000045
+        },
+        "TrainerController.start_learning": {
+            "total": 24.380874300000002,
+            "count": 1,
+            "self": 0.000775899999997165,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 24.379324200000003,
+                    "count": 1,
+                    "self": 24.379324200000003
+                },
+                "trainer_threads": {
+                    "total": 3.000000006636583e-06,
+                    "count": 1,
+                    "self": 3.000000006636583e-06
+                },
+                "TrainerController._save_models": {
+                    "total": 0.000771199999995531,
+                    "count": 1,
+                    "self": 0.000771199999995531
+                }
+            }
+        }
+    }
+}
