@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   area: {fileID: 0}
   hits: 
+  lastHitId: -1
   ballStartForce: 0.1
   maxVel: 4
 --- !u!1 &4044384288978353709

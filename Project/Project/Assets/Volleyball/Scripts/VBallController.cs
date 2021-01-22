@@ -13,7 +13,7 @@ public class VBallController : MonoBehaviour
     }
 
     public List<Hit> hits;
-
+    public int lastHitId = -1;
     public float ballStartForce = 3;
     Rigidbody ballRb;
     Vector3 ballStartingPos;
@@ -48,6 +48,7 @@ public class VBallController : MonoBehaviour
 
         hits.Clear();
         hits.Add(Hit.HitUnset);
+        lastHitId = -1;
     }
 
     void AddRewardToTeam(VPlayer.Team team, float reward)
@@ -69,7 +70,7 @@ public class VBallController : MonoBehaviour
             VPlayer player = col.gameObject.GetComponent<VPlayer>();
             player.AddReward(1f);
             //Debug.Log("Hit to player.");
-
+            lastHitId = player.PlayerIndex;
             Hit hit = player.team == VPlayer.Team.A ? Hit.TeamAHit : Hit.TeamBHit;
             hits.Add(hit);
         }
@@ -96,6 +97,14 @@ public class VBallController : MonoBehaviour
                 AddRewardToTeam(VPlayer.Team.A, 10 * (1 + existinal));
                 //Debug.Log("a puan aldı");
 
+            }
+        }
+
+        if (col.gameObject.name == "BetweenWall")
+        {
+            if (lastHitId != -1)
+            {
+                area.playerStates[lastHitId].agentScript.AddReward(2);
             }
         }
 
