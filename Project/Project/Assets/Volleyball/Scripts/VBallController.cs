@@ -37,13 +37,14 @@ public class VBallController : MonoBehaviour
     {
         transform.position = ballStartingPos;
         ballRb.velocity = Vector3.zero;
+        ballRb.angularVelocity = Vector3.zero;
         //Ball shot
         // Random.Range(0,2)*2-1   == -1 or 1
         int randomSign = Random.Range(0, 2) * 2 - 1;
-        float randomX = Random.Range(-1.3f, 1.3f);
-        float rndStartForce = ballStartForce + Random.Range(0.05f, 0.5f);
-        transform.localPosition = (Vector3.right * randomX) + (Vector3.up * 1.5f);
-        ballRb.AddForce(((Vector3.forward * randomSign) + Vector3.up) * rndStartForce, ForceMode.Impulse);
+        //float randomX = Random.Range(-1.3f, 1.3f);
+        //float rndStartForce = ballStartForce + Random.Range(0.05f, 0.5f);
+        transform.localPosition = new Vector3(0, 1.5f, randomSign * 1.32f);
+        //ballRb.AddForce(((Vector3.forward * randomSign) + Vector3.up) * rndStartForce, ForceMode.Impulse);
 
         hits.Clear();
         hits.Add(Hit.HitUnset);
@@ -90,7 +91,7 @@ public class VBallController : MonoBehaviour
             AddRewardToTeam(VPlayer.Team.B, -10 * (1 + existinal));
             //Debug.Log("b ceza aldı");
 
-            if (hits.Contains(Hit.TeamBHit))
+            if (hits.Contains(Hit.TeamAHit))
             {
                 AddRewardToTeam(VPlayer.Team.A, 10 * (1 + existinal));
                 //Debug.Log("a puan aldı");

@@ -28,7 +28,7 @@ public class VPlayer : Agent
     float existinal;
     public float LateralSpeed = 0.3f;
     public float ForwardSpeed = 1.3f;
-    public float JumpForce = 5;
+    public float JumpForce = 50;
     public float maxVel = 3;
     [HideInInspector]
     public float timePenalty;
@@ -113,7 +113,7 @@ public class VPlayer : Agent
     {
         sensor.AddObservation(ballRb.velocity.x * invert);
         sensor.AddObservation(ballRb.velocity.y);
-        sensor.AddObservation(ballRb.velocity.y * invert);
+        sensor.AddObservation(ballRb.velocity.z* invert);
 
         sensor.AddObservation(ballRb.transform.localPosition.x * invert);
         sensor.AddObservation(ballRb.transform.localPosition.y);
@@ -137,7 +137,7 @@ public class VPlayer : Agent
             sensor.AddObservation(playerRb.velocity.z * invert);
         }
 
-        sensor.AddObservation(transform.rotation.y * invert);
+        sensor.AddObservation(transform.rotation.y);
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -189,7 +189,7 @@ public class VPlayer : Agent
         //jump
         if (Input.GetKey(KeyCode.Space))
         {
-            continuousActionsOut[0] = JumpForce;
+            continuousActionsOut[0] = 1;
         }
     }
  
@@ -218,5 +218,12 @@ public class VPlayer : Agent
     public void ExistinalPunishment()
     {
         AddReward(10 * (1 + timePenalty));
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag=="Net")
+        {
+            AddReward(-1);
+        }   
     }
 }

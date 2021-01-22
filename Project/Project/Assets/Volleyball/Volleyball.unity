@@ -283,6 +283,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainField (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4044384288235401925, guid: dd75b0c455febb74689587f9c6900c46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4044384289202738741, guid: dd75b0c455febb74689587f9c6900c46,
         type: 3}
       propertyPath: m_InferenceDevice
@@ -371,6 +376,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TrainField (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044384288235401925, guid: dd75b0c455febb74689587f9c6900c46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044384289202738741, guid: dd75b0c455febb74689587f9c6900c46,
         type: 3}
@@ -461,6 +471,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainField (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4044384288235401925, guid: dd75b0c455febb74689587f9c6900c46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4044384289202738741, guid: dd75b0c455febb74689587f9c6900c46,
         type: 3}
       propertyPath: m_InferenceDevice
@@ -549,6 +564,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TrainField (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044384288235401925, guid: dd75b0c455febb74689587f9c6900c46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044384289202738741, guid: dd75b0c455febb74689587f9c6900c46,
         type: 3}
@@ -639,6 +659,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainField (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4044384288235401925, guid: dd75b0c455febb74689587f9c6900c46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4044384289202738741, guid: dd75b0c455febb74689587f9c6900c46,
         type: 3}
       propertyPath: m_InferenceDevice
@@ -727,6 +752,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TrainField (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044384288235401925, guid: dd75b0c455febb74689587f9c6900c46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044384289202738741, guid: dd75b0c455febb74689587f9c6900c46,
         type: 3}
@@ -817,6 +847,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainField (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4044384288235401925, guid: dd75b0c455febb74689587f9c6900c46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4044384289202738741, guid: dd75b0c455febb74689587f9c6900c46,
         type: 3}
       propertyPath: m_InferenceDevice
@@ -905,6 +940,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TrainField (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044384288235401925, guid: dd75b0c455febb74689587f9c6900c46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044384289202738741, guid: dd75b0c455febb74689587f9c6900c46,
         type: 3}
@@ -995,6 +1035,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainField (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4044384288235401925, guid: dd75b0c455febb74689587f9c6900c46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4044384289202738741, guid: dd75b0c455febb74689587f9c6900c46,
         type: 3}
       propertyPath: m_InferenceDevice
@@ -1083,6 +1128,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TrainField (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044384288235401925, guid: dd75b0c455febb74689587f9c6900c46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044384289202738741, guid: dd75b0c455febb74689587f9c6900c46,
         type: 3}
@@ -1256,6 +1306,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainField (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4044384288235401925, guid: dd75b0c455febb74689587f9c6900c46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4044384289202738741, guid: dd75b0c455febb74689587f9c6900c46,
         type: 3}
       propertyPath: m_InferenceDevice
@@ -1344,26 +1399,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TrainField
-      objectReference: {fileID: 0}
-    - target: {fileID: 4044384289202738741, guid: dd75b0c455febb74689587f9c6900c46,
-        type: 3}
-      propertyPath: m_InferenceDevice
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8359259681414302535, guid: dd75b0c455febb74689587f9c6900c46,
-        type: 3}
-      propertyPath: m_InferenceDevice
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8359259682058660746, guid: dd75b0c455febb74689587f9c6900c46,
-        type: 3}
-      propertyPath: m_InferenceDevice
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8359259682255009643, guid: dd75b0c455febb74689587f9c6900c46,
-        type: 3}
-      propertyPath: m_InferenceDevice
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd75b0c455febb74689587f9c6900c46, type: 3}
