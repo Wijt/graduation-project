@@ -1,4 +1,26 @@
 {
+    "VPlayer": {
+        "checkpoints": [
+            {
+                "steps": 499996,
+                "file_path": "results\\VPlayer-FirstButCorrected\\VPlayer\\VPlayer-499996.onnx",
+                "reward": -5.348392506863209,
+                "creation_time": 1611306179.2960205
+            },
+            {
+                "steps": 761148,
+                "file_path": "results\\VPlayer-FirstButCorrected\\VPlayer\\VPlayer-761148.onnx",
+                "reward": -4.47539326314176,
+                "creation_time": 1611307904.8223221
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 761148,
+            "file_path": "results\\VPlayer-FirstButCorrected\\VPlayer.onnx",
+            "reward": -4.47539326314176,
+            "creation_time": 1611307904.8223221
+        }
+    },
     "metadata": {
         "stats_format_version": "0.2.0",
         "mlagents_version": "0.23.0",
