@@ -2,18 +2,6 @@
     "VPlayer": {
         "checkpoints": [
             {
-                "steps": 5999996,
-                "file_path": "results\\VPlayer-FirstButCorrected\\VPlayer\\VPlayer-5999996.onnx",
-                "reward": -4.102956082270696,
-                "creation_time": 1611363786.0987895
-            },
-            {
-                "steps": 6499999,
-                "file_path": "results\\VPlayer-FirstButCorrected\\VPlayer\\VPlayer-6499999.onnx",
-                "reward": -5.0936929868615195,
-                "creation_time": 1611370070.8824732
-            },
-            {
                 "steps": 6999995,
                 "file_path": "results\\VPlayer-FirstButCorrected\\VPlayer\\VPlayer-6999995.onnx",
                 "reward": -4.5748502349224545,
@@ -30,13 +18,25 @@
                 "file_path": "results\\VPlayer-FirstButCorrected\\VPlayer\\VPlayer-7917728.onnx",
                 "reward": -4.290835876119101,
                 "creation_time": 1611388998.116728
+            },
+            {
+                "steps": 7999990,
+                "file_path": "results\\VPlayer-FirstButCorrected\\VPlayer\\VPlayer-7999990.onnx",
+                "reward": -3.1538095474243164,
+                "creation_time": 1611390422.4662416
+            },
+            {
+                "steps": 8372152,
+                "file_path": "results\\VPlayer-FirstButCorrected\\VPlayer\\VPlayer-8372152.onnx",
+                "reward": -4.289834336464449,
+                "creation_time": 1611399289.6209278
             }
         ],
         "final_checkpoint": {
-            "steps": 7917728,
+            "steps": 8372152,
             "file_path": "results\\VPlayer-FirstButCorrected\\VPlayer.onnx",
-            "reward": -4.290835876119101,
-            "creation_time": 1611388998.116728
+            "reward": -4.289834336464449,
+            "creation_time": 1611399289.6209278
         }
     },
     "metadata": {
