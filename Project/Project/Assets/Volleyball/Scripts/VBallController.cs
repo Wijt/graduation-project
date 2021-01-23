@@ -70,7 +70,14 @@ public class VBallController : MonoBehaviour
             VPlayer player = col.gameObject.GetComponent<VPlayer>();
             player.AddReward(1f);
             //Debug.Log("Hit to player.");
-            lastHitId = player.PlayerIndex;
+            if (lastHitId == player.PlayerIndex)
+            {
+                player.AddReward(-0.75f);
+            }
+            else
+            {
+                lastHitId = player.PlayerIndex;
+            }
             Hit hit = player.team == VPlayer.Team.A ? Hit.TeamAHit : Hit.TeamBHit;
             hits.Add(hit);
         }
@@ -112,6 +119,13 @@ public class VBallController : MonoBehaviour
         {
             area.EndEpsido();
             area.MatchReset();
+        }
+        if (col.gameObject.name == "Net")
+        {
+            if (lastHitId != -1)
+            {
+                area.playerStates[lastHitId].agentScript.AddReward(-0.75f);
+            }
         }
     }
     private void FixedUpdate()
