@@ -148,6 +148,22 @@ public class VPlayer : Agent
         if (CheckGroundStatus())
             if(continuousActions[0]>0)
                 agentRb.AddForce(Vector3.up * continuousActions[0] * JumpForce, ForceMode.Impulse);
+
+
+        if (team == Team.A)
+        {
+            if(ballController.transform.position.z < 0)
+            {
+                AddReward(-0.001f);
+            }
+        }
+        else
+        {
+            if (ballController.transform.position.z > 0)
+            {
+                AddReward(-0.001f);
+            }
+        }
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)

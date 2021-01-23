@@ -20,6 +20,8 @@ public class VBallController : MonoBehaviour
 
     public float maxVel;
 
+    public VPlayer.Team serviceTeam;
+
     public float existinal { get => area.playerStates[0].agentScript.timePenalty; }
 
     private void Awake()
@@ -44,6 +46,8 @@ public class VBallController : MonoBehaviour
         //float randomX = Random.Range(-1.3f, 1.3f);
         //float rndStartForce = ballStartForce + Random.Range(0.05f, 0.5f);
         transform.localPosition = new Vector3(0, 1.5f, randomSign * 0.7f);
+
+        serviceTeam = randomSign == 1 ? VPlayer.Team.B : VPlayer.Team.A;
         //ballRb.AddForce(((Vector3.forward * randomSign) + Vector3.up) * rndStartForce, ForceMode.Impulse);
 
         hits.Clear();
