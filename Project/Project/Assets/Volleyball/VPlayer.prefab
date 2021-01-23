@@ -130,8 +130,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.23726642, y: 0.39016935, z: 0.26523817}
-  m_Center: {x: 0, y: -0.2026275, z: -0.012353718}
+  m_Size: {x: 0.23726642, y: 0.39016935, z: 0.2317509}
+  m_Center: {x: 0, y: -0.2026275, z: 0.0044183433}
 --- !u!114 &5486092917868835000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +159,9 @@ MonoBehaviour:
   timePenalty: 0
   agentRb: {fileID: 0}
   ballRb: {fileID: 0}
+  debug: 0
+  jumpCoolDown: 1
+  hitForce: 0
 --- !u!114 &5486092917868835003
 MonoBehaviour:
   m_ObjectHideFlags: 0

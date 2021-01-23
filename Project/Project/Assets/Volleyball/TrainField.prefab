@@ -913,6 +913,11 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835002, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: TeamId
@@ -1103,6 +1108,11 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835002, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
       propertyPath: TeamId
@@ -1278,6 +1288,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835002, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
@@ -1458,6 +1473,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486092917868835002, guid: 7aea8d5dacaaabd40aa38a185c735898,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486092917868835003, guid: 7aea8d5dacaaabd40aa38a185c735898,
         type: 3}
