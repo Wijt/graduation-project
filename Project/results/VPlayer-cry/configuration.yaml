@@ -53,7 +53,7 @@ engine_settings:
   no_graphics: false
 environment_parameters: null
 checkpoint_settings:
-  run_id: VPlayer-cry
+  run_id: VPlayer-CRY
   initialize_from: null
   load_model: false
   resume: true

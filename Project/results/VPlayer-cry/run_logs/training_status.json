@@ -210,13 +210,31 @@
                 "file_path": "results\\VPlayer-cry\\VPlayer\\VPlayer-15957749.onnx",
                 "reward": -0.2815050983668438,
                 "creation_time": 1611291083.4429498
+            },
+            {
+                "steps": 15999991,
+                "file_path": "results\\VPlayer-CRY\\VPlayer\\VPlayer-15999991.onnx",
+                "reward": -0.20999999708599515,
+                "creation_time": 1611499480.2596936
+            },
+            {
+                "steps": 16499995,
+                "file_path": "results\\VPlayer-CRY\\VPlayer\\VPlayer-16499995.onnx",
+                "reward": -0.2720338954553429,
+                "creation_time": 1611504861.1653724
+            },
+            {
+                "steps": 16854425,
+                "file_path": "results\\VPlayer-CRY\\VPlayer\\VPlayer-16854425.onnx",
+                "reward": -0.3370437925803835,
+                "creation_time": 1611507057.9940836
             }
         ],
         "final_checkpoint": {
-            "steps": 15957749,
-            "file_path": "results\\VPlayer-cry\\VPlayer.onnx",
-            "reward": -0.2815050983668438,
-            "creation_time": 1611291083.4429498
+            "steps": 16854425,
+            "file_path": "results\\VPlayer-CRY\\VPlayer.onnx",
+            "reward": -0.3370437925803835,
+            "creation_time": 1611507057.9940836
         }
     },
     "metadata": {

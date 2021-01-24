@@ -44,7 +44,7 @@ public class VBallController : MonoBehaviour
         int randomSign = Random.Range(0, 2) * 2 - 1;
        //float randomX = Random.Range(-1.3f, 1.3f);
         //float rndStartForce = ballStartForce;
-        transform.localPosition = new Vector3(0, 2.85f, randomSign * 1.5f);
+        transform.localPosition = new Vector3(0, 2.85f, randomSign * 1.3f);
         //Vector3 force = ((Vector3.forward * randomSign * 3) + Vector3.up * 1).normalized * rndStartForce;
         ////Debug.Log(force);
         //ballRb.AddForce(force, ForceMode.Impulse);
@@ -80,8 +80,19 @@ public class VBallController : MonoBehaviour
                 {
                     player.AddReward(0.2f);
                     ContactPoint contact = col.contacts[0];
-                    ballRb.AddForce((contact.point - (contact.point + contact.normal)).normalized * player.hitForce * -2.5f, ForceMode.Impulse);
+                    Vector3 dir = (contact.point - (contact.point + contact.normal)).normalized;
+                    Debug.Log(dir);
+                    ballRb.AddForce(dir * -2.5f, ForceMode.Impulse);
                     Debug.DrawLine(contact.point, contact.point + contact.normal, Color.green, 2, false);
+                    if (player.team == VPlayer.Team.A)
+                    {
+                        if(dir.z>0) player.AddReward(-0.1f);
+                    }
+                    else
+                    {
+                        if(dir.z<0) player.AddReward(-0.1f);
+
+                    }
                 }
             }
             lastTouchId = player.PlayerIndex;
@@ -116,14 +127,25 @@ public class VBallController : MonoBehaviour
 
             if (hits[hits.Count - 1] == Hit.TeamAHit)
             {
-                area.AddRewardToTeam(VPlayer.Team.A, 0.2f);
+                area.AddRewardToTeam(VPlayer.Team.A, 0.4f);
             }
             else if (hits[hits.Count - 1] == Hit.TeamBHit)
             {
-                area.AddRewardToTeam(VPlayer.Team.B, 0.2f);
+                area.AddRewardToTeam(VPlayer.Team.B, 0.4f);
             }
         }
+        if (col.gameObject.tag == "wall")
+        {
 
+            if (hits[hits.Count - 1] == Hit.TeamAHit)
+            {
+                area.AddRewardToTeam(VPlayer.Team.A, -0.02f);
+            }
+            else if (hits[hits.Count - 1] == Hit.TeamBHit)
+            {
+                area.AddRewardToTeam(VPlayer.Team.B, -0.02f);
+            }
+        }
         if (col.gameObject.tag == "AreaA" || col.gameObject.tag == "AreaB")
         {
             EndMatch();
